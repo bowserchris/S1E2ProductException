@@ -7,8 +7,8 @@ public class Sale {
 		System.out.println("A new sale is being done.");
 	}
 	
-	protected ArrayList<Product> productList;
-	protected int totalSalesPrice;
+	private ArrayList<Product> productList;
+	private int totalSalesPrice;
 	
 	public Sale(int totalSalesPrice) {
 		this.productList = new ArrayList<Product>();
@@ -37,13 +37,15 @@ public class Sale {
 			for (int i = 0; i < productList.size(); i++) {
 				totalSalesPrice += productList.get(i).getPrice();
 			}
-			if (productList.size() == 0) {
+			/*if (productList.size() == 0) {
 				throw new SalesEmptyException("EmptySalesException");
-			}
-		} catch (SalesEmptyException e) {  
+			}*/
+		} catch (SalesEmptyException see) {  
 			//throw new SalesEmptyException(e.getMessage());
-			System.out.println(e.getMessage());
-		} /*finally {
+			System.out.println(see.getMessage());
+		} 
+		/*finally {
+		}
 			if (productList != null) {
 			System.out.println("List is being assembled.");
 			}
